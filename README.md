@@ -4,6 +4,8 @@ This is a module for the [MagicMirror²](https://github.com/MichMich/MagicMirror
 
 Narcotics Anonomous Just For Today Meditation Display for Magic Mirror2
 
+[Preview](https://github.com/LeftBrainCreated/MMM-JustForTodayMeditation/blob/main/JustForToday_Cropped%20(1).png?raw=true)
+
 Thanks to the BibleGateway module as it was used as a starting point.
 
 Simple installation
