@@ -1,0 +1,24 @@
+.MMM-JustForTodayMeditation {
+  max-width: 100vh;
+  height: auto;
+  max-height: auto;
+  line-height: 1em;
+  right: 10px;
+}
+
+.MMM-JustForTodayMeditation .xsmall,
+.MMM-JustForTodayMeditation .default {
+  max-width: 50vh;
+}
+
+.MMM-JustForTodayMeditation .small {
+  max-width: 60vh;
+}
+
+.MMM-JustForTodayMeditation .medium {
+  max-width: 75vh;
+}
+
+.MMM-JustForTodayMeditation .large {
+  max-width: 100vh;
+}
