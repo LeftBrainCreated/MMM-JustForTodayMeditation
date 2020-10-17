@@ -37,6 +37,10 @@ module.exports = NodeHelper.create({
         case 200:
           console.log("[JFT] RequestSuccess --> Response: " /* + body*/);
 
+          // If you want the full read-out, uncomment this line 
+          // and comment the next two below
+          //var result = body;
+          
           var regEx = new RegExp(/\<b\>Just for Today: \<\/b\>[^\<]*/g);
           var result = body.match(regEx);
 
@@ -60,14 +64,6 @@ module.exports = NodeHelper.create({
           }
       }
     });
-
-    // request({ url: bibleGatewayURL, method: 'GET' }, function(error, response, body) {
-    // 	if(!error && response.statusCode == 200){
-    // 		console.log(body);
-    // 		var result = JSON.parse(body);
-    // 		self.sendSocketNotification('BIBLE_GATEWAY_RESULT', result);
-    // 	}
-    // });
   },
 
   // Override socketNotificationReceived method.
@@ -94,36 +90,6 @@ module.exports = NodeHelper.create({
     );
     this.processJftRequest();
   }
-
-  // processJftRequest: function () {
-  // 	var jftUrl = 'http://www.jftna.org/jft/';
-
-  // 	request({ url: jftUrl, method: 'GET' }, function(error, response, body) {
-  // 		switch (response.statusCode) {
-  // 			case 200:
-  // 				console.log('[JFT] RequestSuccess --> Response: ' + body);
-
-  // 				this.sendSocketNotification('JFT_RESULT', body);
-  // 				break;
-
-  // 			default:
-  // 				if (error) {
-  // 					console.error('[JFT] An error occurred while contacting jft webserver: ' + error);
-  // 				} else {
-  // 					console.warn('[JFT] Unknown Failure: \nResponseCode: ' + response.statusCode + '\nResponseMessage: ' + response.message);
-  // 				}
-
-  // 		}
-  // 	});
-  // },
-
-  // // maybe just needs a comment?
-  // getJftMeditationLine: function(body) {
-  // 	return {jftResult: 'test'};
-  // },
-
-  // // var getJftMeditationLine: function (htmlBody) {
-  // // 	var result;
 
   // // Example function send notification test
   // sendNotificationTest: function(payload) {
