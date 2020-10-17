@@ -9,8 +9,9 @@
 
 Module.register("MMM-JustForTodayMeditation", {
   defaults: {
-    updateInterval: 1000 * 60 * 60 * 3, // every 3 hours
-    retryDelay: 5000
+    interval: 1000 * 60 * 60 * 3, // every 3 hours
+    retryDelay: 5000, // 5 seconds
+    size: 'small'
   },
 
   requiresVersion: "2.1.0", // Required version of MagicMirror
@@ -19,18 +20,20 @@ Module.register("MMM-JustForTodayMeditation", {
     var self = this;
     var jftResult = "";
 
+    self.config.interval = (!self.config.interval) ? defaults.interval : self.config.interval;
+    self.config.retryDelay = (!self.config.retryDelay) ? defaults.retryDelay : self.config.retryDelay;
+    self.config.size = (!self.config.size) ? defaults.size : self.config.size;
+
     Log.info("Starting module: " + this.name);
     var self = this;
-
-    var configuredVersion = this.config.version;
 
     //Do this once first
     self.sendSocketNotification("GET_JFT", null);
 
     //Then every hour
     setInterval(function () {
-      self.sendSocketNotification("GET_JFT", configuredVersion);
-    }, this.config.updateInterval); //perform every hour (60000), pulled from config
+      self.sendSocketNotification("GET_JFT", null);
+    }, this.config.interval * 1000 * 60 * 60); // count is in milliseconds, * 1000 for seconds, * 60 for minutes, * 60 for hours
 
   },
 
