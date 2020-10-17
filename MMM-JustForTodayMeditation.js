@@ -30,19 +30,8 @@ Module.register("MMM-JustForTodayMeditation", {
     //Then every hour
     setInterval(function () {
       self.sendSocketNotification("GET_JFT", configuredVersion);
-    }, this.config.updateInterval); //perform every hour (3600000 milliseconds)
+    }, this.config.updateInterval); //perform every hour (60000), pulled from config
 
-    // var dataRequest = null;
-    // var dataNotification = null;
-
-    // //Flag for check if module is loaded
-    // this.loaded = false;
-
-    // // Schedule update timer.
-    // this.getData();
-    // setInterval(function() {
-    // 	self.updateDom();
-    // }, this.config.updateInterval);
   },
 
   /*
@@ -104,6 +93,7 @@ Module.register("MMM-JustForTodayMeditation", {
     // create element wrapper
     var wrapper = document.createElement("div");
 
+    // value from config (size)
     if (this.jftResult) {
       var wrapper = document.createElement("div");
       switch (this.config.size) {
@@ -125,14 +115,6 @@ Module.register("MMM-JustForTodayMeditation", {
       wrapper.innerHTML = this.jftResult;
     }
 
-    // // Data from helper
-    // if (this.dataNotification) {
-    // 	var wrapperDataNotification = document.createElement("div");
-    // 	// translations  + datanotification
-    // 	wrapperDataNotification.innerHTML =  this.translate("UPDATE") + ": " + this.dataNotification.date;
-
-    // 	wrapper.appendChild(wrapperDataNotification);
-    // }
     return wrapper;
   },
 
@@ -142,15 +124,6 @@ Module.register("MMM-JustForTodayMeditation", {
 
   getStyles: function () {
     return ["MMM-JustForTodayMeditation.css"];
-  },
-
-  // Load translations files
-  getTranslations: function () {
-    //FIXME: This can be load a one file javascript definition
-    return {
-      en: "translations/en.json",
-      es: "translations/es.json"
-    };
   },
 
   processData: function (data) {
