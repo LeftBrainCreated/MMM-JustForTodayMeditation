@@ -2,7 +2,31 @@
 
 This is a module for the [MagicMirror²](https://github.com/MichMich/MagicMirror/).
 
-Todo: Insert description here!
+Narcotics Anonomous Just For Today Meditation Display for Magic Mirror2
+
+Thanks to the BibleGateway module as it was used as a starting point.
+
+Simple installation
+
+
+Using Console, from /MagicMirror
+
+`
+cd modules
+`
+
+`
+git clone https://github.com/LeftBrainCreated/MMM-JustForTodayMeditation.git
+`
+
+`
+cd MMM-JustForTodayMeditation
+`
+
+`
+npm i
+`
+
 
 ## Using the module
 
@@ -11,12 +35,15 @@ To use this module, add the following configuration block to the modules array i
 ```js
 var config = {
   modules: [
-    {
-      module: "MMM-JustForTodayMeditation",
-      config: {
-        // See below for configurable options
-      }
-    }
+		{
+			module: 'MMM-JustForTodayMeditation',
+			position: 'bottom_bar',
+			config: {
+				interval: 3 // refresh every x hours
+				, retryDelay: 5000 // time in milliseconds
+				, size: 'xsmall'
+			}
+		},
   ]
 };
 ```
@@ -25,5 +52,6 @@ var config = {
 
 | Option    | Description                                                                                                     |
 | --------- | --------------------------------------------------------------------------------------------------------------- |
-| `option1` | _Required_ DESCRIPTION HERE                                                                                     |
-| `option2` | _Optional_ DESCRIPTION HERE TOO <br><br>**Type:** `int`(milliseconds) <br>Default 60000 milliseconds (1 minute) |
+| `interval` | _Optional_ Refresh time, in hours Default is 3 hrs |
+| `retryDelay` | _Optional_ When to try again, on failure |
+| `size` | _Optional_ Size of text, default is |
